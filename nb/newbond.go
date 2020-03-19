@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+
+	"github.com/jasonlvhit/gocron"
 )
 
 func task() {
@@ -23,6 +25,7 @@ func task() {
 		log.Println("发送失败", err)
 		return
 	}
+	fmt.Println("send over")
 }
 
 func test() {
@@ -30,8 +33,9 @@ func test() {
 }
 
 func main() {
-	task()
-	//gocron.Every(1).Day().At("09:30").Do(task)
+	// task()
+	fmt.Println("start")
+	gocron.Every(1).Day().At("09:30").Do(task)
 	// gocron.Every(1).Second().Do(test)
-	//<-gocron.Start()
+	<-gocron.Start()
 }
