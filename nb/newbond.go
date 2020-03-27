@@ -13,6 +13,7 @@ func task() {
 		"702282623@qq.com",
 		"380266713@qq.com",
 		"zhouyang@gzrobot.com",
+		"276502312@qq.com",
 	}
 	//邮件主题为"Hello"
 	subject := "可转债申购通知"
