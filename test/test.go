@@ -51,7 +51,22 @@ func main() {
 	// }
 
 	//3----
-	var o Printer = &User{1, "Tom"}
-	var s Stringer = o
-	fmt.Println(s.String())
+	// var o Printer = &User{1, "Tom"}
+	// var s Stringer = o
+	// fmt.Println(s.String())
+
+	var m = map[string]Vertex{
+		"Bell Labs": {
+			40.68, -74.39,
+		},
+		"google": {
+			12.11, 13.44,
+		},
+	}
+
+	fmt.Println(m)
+}
+
+type Vertex struct {
+	Lat, Long float64
 }

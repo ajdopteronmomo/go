@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -90,7 +91,8 @@ func reptile() (string, bool) {
 	// 邮件正文
 	mailBody := ""
 	needSend := false
-	for i, value := range stockList {
+	index := 0
+	for _, value := range stockList {
 		arr := strings.Split(value.purchaseDate, "-")
 
 		month, err := strconv.Atoi(arr[0])
@@ -104,7 +106,9 @@ func reptile() (string, bool) {
 		if month != int(time.Now().Month()) || day != time.Now().Day() {
 			continue
 		}
-		mailBody += "第" + strconv.Itoa(i) + "只:[证券代码]" + value.stockCode + "[证券名称]" + value.stockName + "[申购日期]" + value.purchaseDate + "<br>"
+		index++
+		mailBody += "第" + strconv.Itoa(index) + "只:[证券代码]" + value.stockCode + "[证券名称]" + value.stockName + "[申购日期]" + value.purchaseDate + "<br>"
+		fmt.Println(mailBody)
 		needSend = true
 	}
 	return mailBody, needSend

@@ -29,10 +29,6 @@ func task() {
 	fmt.Println("send over")
 }
 
-func test() {
-	fmt.Println("xx")
-}
-
 func main() {
 	// task()
 	fmt.Println("start")
