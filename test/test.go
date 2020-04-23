@@ -55,16 +55,29 @@ func main() {
 	// var s Stringer = o
 	// fmt.Println(s.String())
 
-	var m = map[string]Vertex{
-		"Bell Labs": {
-			40.68, -74.39,
-		},
-		"google": {
-			12.11, 13.44,
-		},
-	}
+	// var m = map[string]Vertex{
+	// 	"Bell Labs": {
+	// 		40.68, -74.39,
+	// 	},
+	// 	"google": {
+	// 		12.11, 13.44,
+	// 	},
+	// }
 
-	fmt.Println(m)
+	// fmt.Println(m)
+
+	var i interface{} = "hello"
+	s := i.(string)
+	fmt.Println(s)
+
+	s, ok := i.(string)
+	fmt.Println(s, ok)
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok)
+
+	f = i.(float64)
+	fmt.Println(f)
 }
 
 type Vertex struct {
