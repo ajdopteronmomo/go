@@ -17,7 +17,7 @@ func main() {
 
 //生成开始到结束日期间 增加days天数后的交易日
 func genTradeDays(start time.Time, end time.Time, days int) {
-	f, err := os.OpenFile("result.txt", os.O_WRONLY|os.O_TRUNC, 0600)
+	f, err := os.OpenFile("result.txt", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0600)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
@@ -31,7 +31,7 @@ func genTradeDays(start time.Time, end time.Time, days int) {
 		resultDay := addTradeDays(queryDayStr, days)
 
 		//记录文件中
-		f.Write([]byte(queryDayStr + "|" + resultDay))
+		f.Write([]byte(queryDayStr + "|" + resultDay + "\n"))
 		fmt.Println(queryDayStr + "|" + resultDay)
 		time.Sleep(time.Second * 10)
 	}
